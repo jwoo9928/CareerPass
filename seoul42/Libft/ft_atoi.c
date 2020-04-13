@@ -6,13 +6,13 @@
 /*   By: japark <astro9928@o.cnu.ac.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 20:00:46 by japark            #+#    #+#             */
-/*   Updated: 2020/02/26 20:07:36 by japark           ###   ########.fr       */
+/*   Updated: 2020/04/11 13:54:35 by japark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int	res;
 	int	flag;

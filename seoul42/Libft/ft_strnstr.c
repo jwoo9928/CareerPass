@@ -6,7 +6,7 @@
 /*   By: japark <astro9928@o.cnu.ac.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 19:23:15 by japark            #+#    #+#             */
-/*   Updated: 2020/02/26 19:35:07 by japark           ###   ########.fr       */
+/*   Updated: 2020/04/11 14:08:50 by japark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 	unsigned int standard;
 	unsigned int i;
 
-    standard = 0;
+	standard = 0;
 	if (!*to_find)
 		return ((char*)str);
 	while (str[standard] != '\0' && (size_t)standard < len)

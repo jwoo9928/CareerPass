@@ -6,13 +6,13 @@
 /*   By: japark <astro9928@o.cnu.ac.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 22:14:55 by japark            #+#    #+#             */
-/*   Updated: 2020/02/26 23:20:58 by japark           ###   ########.fr       */
+/*   Updated: 2020/04/06 19:52:20 by japark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_isdigit(int c)
+int		ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }

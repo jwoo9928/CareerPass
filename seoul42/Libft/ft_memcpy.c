@@ -5,26 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: japark <astro9928@o.cnu.ac.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 12:57:32 by japark            #+#    #+#             */
-/*   Updated: 2020/03/02 12:57:32 by japark           ###   ########.fr       */
+/*   Created: 2020/04/11 14:55:27 by japark            #+#    #+#             */
+/*   Updated: 2020/04/11 17:21:02 by japark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *ft_memcpy(void *destination, const void  *source, size_t num)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-    char    *dst;
-    char    *src;
+	unsigned char		*ptr;
+	const unsigned char	*ptr2;
 
-    if(num == 0 || destination == source)
-        return(destination);
-    dst = (char*)destination;
-    src = (char*)source;
-    while(--num)
-    {
-        *dst++ = *src++;
-    }
-    *dst = *src;
-    return (destination);
+	ptr = (unsigned char*)dst;
+	ptr2 = (unsigned char*)src;
+	while (n-- > 0)
+		*(ptr++) = *(ptr2++);
+	return (dst);
 }
