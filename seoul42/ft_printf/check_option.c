@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_option func.c                                   :+:      :+:    :+:   */
+/*   check_option.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: japark <astro9928@o.cnu.ac.kr>             +#+  +:+       +#+        */
+/*   By: jaewoopark <jaewoopark@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 20:29:46 by japark            #+#    #+#             */
-/*   Updated: 2020/03/14 22:35:56 by japark           ###   ########.fr       */
+/*   Updated: 2020/07/12 19:04:38 by jaewoopark       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,40 @@ void    reset_option(struct s_option *option)
     option->minus = 0;
 }
 
+int     count_option(const char *format,int i)
+{
+    int count;
+
+    count = 0;
+    while(format[--i] != '%')
+        count++;
+    return (count);
+}
+
+char    *check_option(const char *format, int i)
+{
+    char *option;
+    int op_len;
+
+    op_len =  count_option(format, i);
+    if (op_len == 0)
+        return(NULL);
+    option = (char*)malloc((op_len+1)*sizeof(char));
+    option[op_len] = '\0';
+    while(*(format - (--i)) != '%' && op_len > 0)
+        option[--op_len] = format[i];
+    return (option);
+}
+
 int    ft_option(struct s_option *option, const char *format, int i)
 {
     char *op;
 
-    op = check_option(format,i);
+    op = check_option(format,i);//it has option
     printf("op : %s\n",op);
     if (op == NULL)
         return (0);
-    if(op[0] == '0')
-        option->flag =  1;
-    else
-        option->flag = 0;
+    option->flag =  (op[0] == '0' ? 1 : 0);
     while(*op != '\0')
     {
         if (*op == '-')
@@ -69,52 +91,9 @@ void    printf_option(char *storage, struct s_option *option, int flag)
             else
                 cal_blank(width, option->width - ft_strlen(storage),' ');
         }
-        
         ft_strncat(width, storage,ft_strlen(storage));
         ft_putstr_fd(width, 1);
     }
     else
         ft_putstr_fd(storage, 1);
-}
-
-void    string_option(const char *format, char *string,int k)
-{
-    struct s_option option;
-    char            *storage;
-
-    reset_option(&option);
-    if(ft_option(&option, format, k) == 0)
-        return(ft_putstr_fd(string,1));
-    if (option.pre_flag == 1 && option.precision == 0)
-        return(ft_putstr_fd("",1));
-    else if (option.precision != 0)
-    {
-        storage = (char*)malloc(sizeof(char)*(option.precision + 1));
-        ft_strncat(storage,string,option.precision);
-    }
-    else
-        storage = string;
-    printf_option(storage, &option,0);
-}
-
-void    num_option(const char *format, char *string, int k)
-{
-struct s_option option;
-    char            *storage;
-    int             strlen;
-    
-    strlen = ft_strlen(string);
-    reset_option(&option);
-    ft_option(&option, format, k);
-    if (option.precision <= strlen && option.width == 0)
-        return(ft_putstr_fd(string,1));
-    else if (option.precision > strlen)
-    {
-        storage = (char*)malloc(sizeof(char)*(option.precision + 1));
-        cal_blank(storage, option.precision - strlen, '0');
-        ft_strncat(storage,string,strlen);
-    }
-    else
-        storage = string;
-    printf_option(storage, &option,1);
 }

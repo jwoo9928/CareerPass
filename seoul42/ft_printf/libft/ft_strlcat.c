@@ -5,35 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: japark <astro9928@o.cnu.ac.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 17:39:59 by japark            #+#    #+#             */
-/*   Updated: 2020/03/02 14:14:28 by japark           ###   ########.fr       */
+/*   Created: 2020/04/13 13:47:51 by japark            #+#    #+#             */
+/*   Updated: 2020/04/13 13:47:51 by japark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t  strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcat(char *ptr1, const char *ptr2, size_t num)
 {
-    size_t dest_s;
-    size_t src_s;
-    size_t i;
+	size_t	i;
+	size_t	ptr1_len;
+	size_t	ptr2_len;
 
-    while (dest[dest_s] != '\0')
-        dest_s++;
-    while (src[src_s] != '\0')
-        src_s++;
-    if (size <= dest_s)
-        src_s += size;
-    else
-        src_s += dest_s;
-    i = 0;
-    while(src[i] != '\0' && i + 1 < size)
-    {
-        dest[dest_s] = src[i];
-        i++;
-        dest_s++;
-    }
-    dest[i] = '\0';
-    return (src_s);
-    
+	i = 0;
+	ptr1_len = ft_strlen(ptr1);
+	ptr2_len = ft_strlen(ptr2);
+	if (ptr1_len >= num)
+		return (ptr2_len + num);
+	while (ptr2[i] && (num - 1 > i + ptr1_len))
+	{
+		ptr1[i + ptr1_len] = ptr2[i];
+		i++;
+	}
+	ptr1[i + ptr1_len] = '\0';
+	return (ptr1_len + ptr2_len);
 }

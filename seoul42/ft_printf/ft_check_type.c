@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_type.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: japark <astro9928@o.cnu.ac.kr>             +#+  +:+       +#+        */
+/*   By: jaewoopark <jaewoopark@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 17:51:43 by japark            #+#    #+#             */
-/*   Updated: 2020/03/14 22:33:12 by japark           ###   ########.fr       */
+/*   Updated: 2020/07/12 19:03:07 by jaewoopark       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 //^c  ^s  p  ^d  ^i   ^u  ^x   ^X
 
 //d,i,e,E,u
+
 int    check_printf(va_list ap, const char *format,int i)
 {
     if (format[i] == 's')
@@ -24,53 +25,30 @@ int    check_printf(va_list ap, const char *format,int i)
     else if (format[i] =='%')
         ft_putchar_fd('%',1);
     else if (format[i] == 'u')
-        num_option(format, ft_size_t_itoa((size_t)va_arg(ap, unsigned int)), i);
-    else if (check_type(va_arg(ap,int),format, i) == 1)
-        i++;
-    return (i);
+        int_option(format, ft_size_t_itoa((size_t)va_arg(ap, unsigned int)), i);
+    else
+        check_type(va_arg(ap, int),format, i);
+    return (0);
 }
 
 
 
 int    check_type(int num, const char*format, int i)
-{
+{   
     if (format[i] == 'd' || format[i] == 'i')
-        num_option(format, ft_itoa(num), i);
-    if (format[i] == 'e')
+        int_option(format, ft_itoa(num), i);
+    else if (format[i] == 'x')
+        int_option(format, trand_hex(num, 1), i);
+    else if (format[i] == 'X')
+        int_option(format, trand_hex(num, 0), i);
+    else if (format[i] == 'e')
         ft_e_notation(num, 1);
-    if (format[i] == 'E')
+    else if (format[i] == 'E')
         ft_e_notation(num, 0);
-    if (format[i] == 'x')
-        num_option(format, trand_hex(num, 1), i);
-    if (format[i] == 'X')
-        num_option(format, trand_hex(num, 0), i);
-    if (format[i] == 'c')
-        ft_putchar_fd((char)num, 1);
+    else if (format[i] == 'c')
+        char_option(format, (char)num, i);
     else
         return (0);
-    return (1);
-}
 
-int     count_option(const char *format,int i)
-{
-    int count;
-
-    count = 0;
-    while(format[--i] != '%')
-        count++;
-    return (count);
-}
-
-char    *check_option(const char *format, int i)
-{
-    char *option;
-    int count;
-    count =  count_option(format, i);
-    if (count == 0)
-        return(NULL);
-    option = (char*)malloc((count+1)*sizeof(char));
-    option[count] = '\0';
-    while(format[--i] != '%' || count >= 0)
-        option[--count] = format[i];
-    return (option);
+    return 1;
 }

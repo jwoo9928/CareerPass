@@ -5,24 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: japark <astro9928@o.cnu.ac.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 16:03:27 by japark            #+#    #+#             */
-/*   Updated: 2020/02/26 16:03:27 by japark           ###   ########.fr       */
+/*   Created: 2020/04/11 14:52:07 by japark            #+#    #+#             */
+/*   Updated: 2020/04/11 17:23:25 by japark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *ft_memmove(void *destination, const void *source, size_t num)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-    void *temp;
-    size_t i;
+	size_t				i;
+	unsigned char		*ptr;
+	const unsigned char	*ptr2;
 
-    temp = destination;
-    i = 0;
-    while (i < num)
-    {
-        *((unsigned char*)destination + i) = *((unsigned char*)source + i);
-        i++;
-    }
-    return (temp);
+	ptr = (unsigned char*)dst;
+	ptr2 = (unsigned char*)src;
+	i = 0;
+	if (ptr2 < ptr)
+		while (++i <= len)
+			ptr[len - i] = ptr2[len - i];
+	else
+		while (len-- > 0)
+			*(ptr++) = *(ptr2++);
+	return (dst);
 }

@@ -7,11 +7,6 @@ void    checks(const char* format, ...)
     printf("size_t : %ld",(size_t)va_arg(ap,void*));
 }
 
-void    test(va_list ap)
-{
-    (size_t)va_arg(ap,void*);
-}
-
 /*int main(void)
 {
     ft_printf("test : %c, string :%s, percent :%%\n",'k',"hello");
@@ -24,9 +19,13 @@ void    test(va_list ap)
     printf("%ld",(size_t)k);
     
 }*/
+
 int main()
 {
-    /*printf("=====basic=====\n");
+
+
+    /*
+    printf("=====basic=====\n");
     printf("1");
     printf("\n");
     ft_printf("1");
@@ -173,7 +172,7 @@ int main()
     printf("\n");
     printf("======28_1=====\n"); 
     printf("\n\n\n");
-
+    */
     printf("=====test_hex======\n");
     printf("%x",2147483647);
     printf("\n");
@@ -328,7 +327,7 @@ int main()
     ft_printf("%-21.17x",1947436999);
     printf("\n");
     printf("======28_1=====\n");
-*/
+/*
     printf("\n\n\n");
     printf("===test_pointer===\n");
     int a = 123;
@@ -375,11 +374,10 @@ int main()
     printf("\n");
     ft_printf("%-20p",str);
     printf("\n");
-    printf("======20=====\n");
+    printf("======20=====\n");*/
 
-  
 
-    /*
+/*
     printf("\n\n\n");
     printf("====test_char=====\n");
     printf("%c",'1');
@@ -414,12 +412,12 @@ int main()
     printf("======6=====\n");
 
 
-
-
-
-
 */
+
+
+
 /*
+
     printf("\n\n\n");
     printf("===test_unsigned===\n");
     
@@ -570,10 +568,10 @@ int main()
     printf("\n");
     ft_printf("%-15.12u",1234567);
     printf("\n");
-    printf("======28_1=====\n"); 
-
-
+    printf("==
     printf("\n\n\n");
+
+    
     printf("=====test_int=====\n");
     printf("%d",12);
     printf("\n");
@@ -722,5 +720,5 @@ int main()
     printf("\n");
     ft_printf("%-15.12d",1234567);
     printf("\n");
-    printf("======28_1=====\n"); */
+    printf("======28_1=====\n");*/
 }

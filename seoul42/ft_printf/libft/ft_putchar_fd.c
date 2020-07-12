@@ -6,13 +6,13 @@
 /*   By: japark <astro9928@o.cnu.ac.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 16:23:27 by japark            #+#    #+#             */
-/*   Updated: 2020/02/28 18:31:43 by japark           ###   ########.fr       */
+/*   Updated: 2020/04/11 14:22:21 by japark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
-    write(fd, &c , 1);
+	write(fd, &c, 1);
 }

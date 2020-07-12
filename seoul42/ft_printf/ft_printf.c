@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: japark <astro9928@o.cnu.ac.kr>             +#+  +:+       +#+        */
+/*   By: jaewoopark <jaewoopark@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 16:16:07 by japark            #+#    #+#             */
-/*   Updated: 2020/03/14 19:48:56 by japark           ###   ########.fr       */
+/*   Updated: 2020/07/12 19:01:59 by jaewoopark       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ int    ft_printf(const char*format, ...)
         if (format[i] == '%')
         {
             i++;
-            while ((format[i] >= 47 && format[i] <= 57) || format[i] == '.'
+            while ((format[i] > 47 && format[i] <= 57) || format[i] == '.'
             || format[i] == '-')
                 i++;
-            i = check_printf(ap,format,i);
+            check_printf(ap,format,i);
         }
         else
             ft_putchar_fd(format[i], 1);
         i++;
     }
-    return (0);
+    return (i);
 }

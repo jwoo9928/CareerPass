@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_size_t_itoa.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: japark <astro9928@o.cnu.ac.kr>             +#+  +:+       +#+        */
+/*   By: jaewoopark <jaewoopark@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 15:36:23 by japark            #+#    #+#             */
-/*   Updated: 2020/03/12 16:51:01 by japark           ###   ########.fr       */
+/*   Updated: 2020/07/11 15:27:20 by jaewoopark       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,23 @@ char    *ft_size_t_itoa(size_t n)
         digit--;
     }
     return ((char*)(number));
+}
+
+char	*ft_strncat(char *dest, char *src, int nb)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (dest[i] != '\0')
+		i++;
+	j = 0;
+	while (src[j] != '\0' && j < nb)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

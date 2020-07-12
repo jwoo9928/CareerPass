@@ -3,60 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: japark <astro9928@o.cnu.ac.kr>             +#+  +:+       +#+        */
+/*   By: jaewoopark <jaewoopark@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 21:38:42 by japark            #+#    #+#             */
-/*   Updated: 2020/03/02 14:59:23 by japark           ###   ########.fr       */
+/*   Updated: 2020/07/12 14:48:12 by jaewoopark       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     return_digit(int n)
+static int		get_nb_size(unsigned int nb)
 {
-    int count;
+	unsigned int	size;
 
-    count = 0;
-    if(n < 0)
-        n *= -1;
-    while(n > 9)
-    {
-        n = n/10;
-        count++;
-    }
-    count++;
-    return (count);
+	size = 0;
+	while (nb >= 10)
+	{
+		nb /= 10;
+		++size;
+	}
+	return (size + 1);
 }
 
-char    *ft_itoa(int n)
+char			*ft_itoa(int nbr)
 {
-    int digit;
-    int flag;
-    char *number;
+	char			*str;
+	unsigned int	nb;
+	unsigned int	index;
+	unsigned int	size;
 
-    if (n == -2147483648)
-        return(ft_strdup("-2147483648"));
-    flag = 0;
-    if (n < 0)
-    {
-        n *= -1;
-        flag++;
-    }
-    digit = return_digit(n);
-    if (!(number = (char*)malloc((digit + 1)*sizeof(char))))
-        return (NULL);
-    if(flag == 1)
-        number[0] = '-';
-    else
-    {
-        number[digit] = '\0';
-        digit--;
-    }
-    while(number[digit] == '\0')
-    {
-        number[digit] = (n%10 + '0');
-        n = n / 10;
-        digit--;
-    }
-    return ((char*)(number));
+	if (nbr < 0)
+		nb = (unsigned int)(nbr * -1);
+	else
+		nb = (unsigned int)nbr;
+	size = (unsigned int)get_nb_size(nb);
+	index = 0;
+	if (!(str = (char*)malloc(sizeof(char) * (size + 1 + (nbr < 0 ? 1 : 0)))))
+		return (0);
+	if (nbr < 0 && (str[index] = '-'))
+		size++;
+	index = size - 1;
+	while (nb >= 10)
+	{
+		str[index--] = (char)(nb % 10 + 48);
+		nb /= 10;
+	}
+	str[index] = (char)(nb % 10 + 48);
+	str[size] = '\0';
+	return (str);
 }
