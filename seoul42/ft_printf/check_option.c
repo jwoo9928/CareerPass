@@ -6,7 +6,7 @@
 /*   By: jaewoopark <jaewoopark@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 20:29:46 by japark            #+#    #+#             */
-/*   Updated: 2020/07/14 16:34:49 by jaewoopark       ###   ########.fr       */
+/*   Updated: 2020/07/14 20:26:19 by jaewoopark       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char    *check_option(const char *format, int i)
         return(NULL);
     option = (char*)malloc((op_len+1)*sizeof(char));
     option[op_len] = '\0';
-    while(*(format - (--i)) != '%' && op_len > 0)
+    while(format[--i] != '%' && op_len > 0)
         option[--op_len] = format[i];
     return (option);
 }

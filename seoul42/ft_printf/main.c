@@ -23,11 +23,11 @@ void    checks(const char* format, ...)
 int main()
 {
 
-    int k, j;
+    int k,j;
 
-    k = ft_printf("u%4.2ss", "coco");
+    k = ft_printf("%-17%");
     printf("k = %d\n",k);
-    j = printf("u%4.2ss", "coco");
+    j = printf("%-17%");
     printf("j = %d\n",j);
 
 
@@ -49,8 +49,8 @@ int main()
     ft_printf("\t");
     ft_printf("\n");*/
 
-
 /*
+
     printf("\n\n\n");
     printf("=====test_string======\n");
     k = printf("%s","%sabc%s");
@@ -182,10 +182,10 @@ int main()
     ft_printf("%-6.8s","abc");
     printf("\n");
     printf("======28=====\n"); 
-    k = printf("%-8.6s","abc");
+    k = printf("%8.1s","abc");
     printf("size : %d\n",k);
     printf("\n");
-    k = ft_printf("%-8.6s","abc");
+    k = ft_printf("%8.1s","abc");
     printf("size : %d\n",k);
     printf("\n");
     printf("======28_1=====\n"); 

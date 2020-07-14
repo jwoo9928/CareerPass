@@ -6,7 +6,7 @@
 /*   By: jaewoopark <jaewoopark@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 17:51:43 by japark            #+#    #+#             */
-/*   Updated: 2020/07/14 14:26:37 by jaewoopark       ###   ########.fr       */
+/*   Updated: 2020/07/14 21:07:30 by jaewoopark       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,12 @@ int    check_printf(va_list ap, const char *format,int i)
     else if (format[i] == 'p')
         return (point_option(format, trand_hex((size_t)va_arg(ap,void*),1), i));
     else if (format[i] =='%')
-    {
-        ft_putchar_fd('%',1);
-        return (1);
-    }
+        return (percent_option(format, i));
     else if (format[i] == 'u')
-        int_option(format, ft_size_t_itoa((size_t)va_arg(ap, unsigned int)), i);
+        return (int_option(format, ft_size_t_itoa((size_t)va_arg(ap, unsigned int)), i));
     else
         return(check_type(va_arg(ap, int),format, i));
-    return (0);
+    return (-1);
 }
 
 
@@ -51,7 +48,7 @@ int    check_type(int num, const char*format, int i)
     else if (format[i] == 'c' || format[i] =='C')
         return(char_option(format, (char)num, i));
     else
-        return (0);
+        return (-1);
 
-    return 1;
+    return (-1);
 }

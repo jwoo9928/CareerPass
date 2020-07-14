@@ -6,7 +6,7 @@
 /*   By: jaewoopark <jaewoopark@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 22:28:29 by japark            #+#    #+#             */
-/*   Updated: 2020/07/14 16:35:28 by jaewoopark       ###   ########.fr       */
+/*   Updated: 2020/07/14 17:52:16 by jaewoopark       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,15 @@ int    string_option(const char *format, char *string,int k)
     reset_option(&option);
     if(ft_option(&option, format, k) == 0)
         return(ft_putstr_count(string, 0));
-    if (option.pre_flag == 1 && option.precision == 0)//option only has "."
+    if (option.pre_flag == 1 && option.precision == 0 && option.width == 0)//option only has "."
         return(ft_putstr_count("", 0));
     else if (option.precision != 0)
     {
         storage = (char*)malloc(sizeof(char)*(option.precision + 1));
         ft_strncat(storage,string,option.precision);
     }
+    else if (option.pre_flag == 1 && option.precision == 0)
+        storage = "";
     else
         storage = string;
     return(printf_option(storage, &option,0));
