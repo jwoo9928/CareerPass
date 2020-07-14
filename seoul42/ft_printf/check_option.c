@@ -6,7 +6,7 @@
 /*   By: jaewoopark <jaewoopark@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 20:29:46 by japark            #+#    #+#             */
-/*   Updated: 2020/07/12 19:04:38 by jaewoopark       ###   ########.fr       */
+/*   Updated: 2020/07/14 16:34:49 by jaewoopark       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ int    ft_option(struct s_option *option, const char *format, int i)
 {
     char *op;
 
-    op = check_option(format,i);//it has option
-    printf("op : %s\n",op);
+    op = check_option(format,i);
     if (op == NULL)
         return (0);
     option->flag =  (op[0] == '0' ? 1 : 0);
@@ -75,7 +74,7 @@ int    ft_option(struct s_option *option, const char *format, int i)
 }
 
 
-void    printf_option(char *storage, struct s_option *option, int flag)
+int    printf_option(char *storage, struct s_option *option, int flag)
 {
     char *width;
 
@@ -93,7 +92,8 @@ void    printf_option(char *storage, struct s_option *option, int flag)
         }
         ft_strncat(width, storage,ft_strlen(storage));
         ft_putstr_fd(width, 1);
+        return(ft_strlen(width));
     }
     else
-        ft_putstr_fd(storage, 1);
+        return(ft_putstr_count(storage, option->width - ft_strlen(storage)));
 }

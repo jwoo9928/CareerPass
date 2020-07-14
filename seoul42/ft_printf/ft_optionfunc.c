@@ -6,7 +6,7 @@
 /*   By: jaewoopark <jaewoopark@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 22:28:29 by japark            #+#    #+#             */
-/*   Updated: 2020/07/12 19:04:13 by jaewoopark       ###   ########.fr       */
+/*   Updated: 2020/07/14 16:35:28 by jaewoopark       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void    cal_blank(char *width,unsigned int cal,char set)
     width[i] = '\0';
 }
 
-void    point_option(const char *format, char *string, int k)
+int    point_option(const char *format, char *string, int k)
 {
     struct s_option option;
     char            *storage;
@@ -38,40 +38,45 @@ void    point_option(const char *format, char *string, int k)
         storage[option.width - strlen - 1] = 'x';
         storage[option.width - strlen - 2] = '0';
         ft_strncat(storage,string,strlen);
-        ft_putstr_fd(storage,1);
+        return (ft_putstr_count(storage, 0));
     }
     else
     {
         ft_putstr_fd("0x",1);
-        ft_putstr_fd(string,1);
+        return (ft_putstr_count(string, option.width - ft_strlen(string) - 2) + 2);
     }
 }
 
-void    char_option(const char *format, char c, int k) {
+int    char_option(const char *format, char c, int k) {
 
     struct s_option option;
     char            storage[2];
 
     reset_option(&option);
     if (ft_option(&option, format, k) == 0)
+    {
         ft_putchar_fd(c,1);
+        return (1);
+    }
 	else
 	{
 		storage[0] = c;
-		printf_option(storage, &option,0);
+		return(printf_option(storage, &option,0));
 	}
 }
 
-void    string_option(const char *format, char *string,int k)
+int    string_option(const char *format, char *string,int k)
 {
     struct s_option option;
     char            *storage;
 
+    if (string == NULL)
+        string = "(null)";
     reset_option(&option);
     if(ft_option(&option, format, k) == 0)
-        return(ft_putstr_fd(string,1));
+        return(ft_putstr_count(string, 0));
     if (option.pre_flag == 1 && option.precision == 0)//option only has "."
-        return(ft_putstr_fd("",1));
+        return(ft_putstr_count("", 0));
     else if (option.precision != 0)
     {
         storage = (char*)malloc(sizeof(char)*(option.precision + 1));
@@ -79,10 +84,10 @@ void    string_option(const char *format, char *string,int k)
     }
     else
         storage = string;
-    printf_option(storage, &option,0);
+    return(printf_option(storage, &option,0));
 }
 
-void	int_option(const char *format, char *str, int k)
+int	int_option(const char *format, char *str, int k)
 {
 	struct s_option option;
 	int				len;
@@ -91,13 +96,13 @@ void	int_option(const char *format, char *str, int k)
     len = ft_strlen(str);
     reset_option(&option);
     if(ft_option(&option, format, k) == 0 || (option.precision <= len && option.width <= len))
-        ft_putstr_fd(str, 1);
+        return(ft_putstr_count(str, 0));
 	else
 	{
         temp = (char*)malloc(sizeof(char)*(option.precision + 1));
         cal_blank(temp, option.precision - len, '0');
         temp  = ft_strjoin(temp, str);
-        printf_option(temp, &option, 1);
+        return(printf_option(temp, &option, 1));
 	}
 	
 }

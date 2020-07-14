@@ -23,7 +23,15 @@ void    checks(const char* format, ...)
 int main()
 {
 
+    int k, j;
 
+    k = ft_printf("u%4.2ss", "coco");
+    printf("k = %d\n",k);
+    j = printf("u%4.2ss", "coco");
+    printf("j = %d\n",j);
+
+
+    
     /*
     printf("=====basic=====\n");
     printf("1");
@@ -39,15 +47,15 @@ int main()
     printf("\t");
     printf("\n");
     ft_printf("\t");
-    ft_printf("\n");
+    ft_printf("\n");*/
 
 
-
+/*
     printf("\n\n\n");
     printf("=====test_string======\n");
-    printf("%s","%sabc%s");
+    k = printf("%s","%sabc%s");
     printf("\n");
-    ft_printf("%s","%sabc%s");
+    k = ft_printf("%s","%sabc%s");
     printf("\n");
     printf("======1=====\n");
     printf("%sthis is test%s%s",">>","<<","!!!");
@@ -81,14 +89,18 @@ int main()
     ft_printf("%1s","123");
     printf("\n");
     printf("======8=====\n");
-    printf("%6s","abc");
+    k = printf("%6s","abc");
+    printf("\nsize : %d\n",k);
     printf("\n");
-    ft_printf("%6s","abc");
+    k = ft_printf("%6s","abc");
+    printf("\nsize : %d\n",k);
     printf("\n");
     printf("======9=====\n");
-    printf("%-.s","abcd");
+    k = printf("%-.s","abcd");
+    printf("size : %d\n",k);
     printf("\n");
-    ft_printf("%-.s","abcd");
+    k = ft_printf("%-.s","abcd");
+    printf("size : %d\n",k);
     printf("\n");
     printf("======10=====\n");
     printf("%-.0s","abcd");
@@ -101,9 +113,11 @@ int main()
     ft_printf("%-.1s","123");
     printf("\n");
     printf("======12=====\n");
-    printf("%-.6s","abc");
+    k = printf("%-.6s","abc");
+    printf("size : %d\n",k);
     printf("\n");
-    ft_printf("%-.6s","abc");
+    k = ft_printf("%-.6s","abc");
+    printf("size : %d\n",k);
     printf("\n");
     printf("======13=====\n");
     printf("%1s","123");
@@ -121,9 +135,11 @@ int main()
     ft_printf("%-1s","123");
     printf("\n");
     printf("======19=====\n");
-    printf("%-6s","abc");
+    k = printf("%-6s","abc");
+    printf("size : %d\n",k);
     printf("\n");
-    ft_printf("%-6s","abc");
+    k = ft_printf("%-6s","abc");
+    printf("size : %d\n",k);
     printf("\n");
     printf("======20=====\n");
     printf("%1.2s","123");
@@ -166,13 +182,15 @@ int main()
     ft_printf("%-6.8s","abc");
     printf("\n");
     printf("======28=====\n"); 
-    printf("%-8.6s","abc");
+    k = printf("%-8.6s","abc");
+    printf("size : %d\n",k);
     printf("\n");
-    ft_printf("%-8.6s","abc");
+    k = ft_printf("%-8.6s","abc");
+    printf("size : %d\n",k);
     printf("\n");
     printf("======28_1=====\n"); 
-    printf("\n\n\n");
-    */
+    printf("\n\n\n");*/
+    /*
     printf("=====test_hex======\n");
     printf("%x",2147483647);
     printf("\n");
@@ -326,7 +344,7 @@ int main()
     printf("\n");
     ft_printf("%-21.17x",1947436999);
     printf("\n");
-    printf("======28_1=====\n");
+    printf("======28_1=====\n");*/
 /*
     printf("\n\n\n");
     printf("===test_pointer===\n");
@@ -349,9 +367,11 @@ int main()
     ft_printf("%1p", &a);
     printf("\n");
     printf("======8=====\n");
-    printf("%19p",&c);
+    k = printf("%19p",&c);
+    printf("k : %d\n",k);
     printf("\n");
-    ft_printf("%19p",&c);
+    k = ft_printf("%19p",&c);
+    printf("k : %d\n",k);
     printf("\n");
     printf("======9=====\n");
     printf("%4p",str);
@@ -370,12 +390,14 @@ int main()
     ft_printf("%-6p",str);
     printf("\n");
     printf("======19=====\n");
-    printf("%-20p",str);
+    k = printf("%-20p",str);
+    printf("k : %d\n",k);
     printf("\n");
-    ft_printf("%-20p",str);
+    k = ft_printf("%-20p",str);
+    printf("k : %d\n",k);
     printf("\n");
-    printf("======20=====\n");*/
-
+    printf("======20=====\n");
+*/
 
 /*
     printf("\n\n\n");
@@ -390,9 +412,11 @@ int main()
     ft_printf("%chis is %cest %c",'t','t','!');
     printf("\n");
     printf("======2=====\n");
-    printf("%5c",'1');
+    k = printf("%5c",'1');
+    printf("\nsize : %d\n",k);
     printf("\n");
-    ft_printf("%5c",'1');
+    k = ft_printf("%5c",'1');
+    printf("\nsize : %d\n",k);
     printf("\n");
     printf("======3=====\n");
     printf("%-5c",'1');
@@ -411,8 +435,8 @@ int main()
     printf("\n");
     printf("======6=====\n");
 
-
 */
+
 
 
 
@@ -571,7 +595,7 @@ int main()
     printf("==
     printf("\n\n\n");
 
-    
+    *//*
     printf("=====test_int=====\n");
     printf("%d",12);
     printf("\n");
@@ -716,9 +740,11 @@ int main()
     ft_printf("%-9.12d",1234567);
     printf("\n");
     printf("======28=====\n"); 
-    printf("%-15.12d",1234567);
+    k = printf("%-15.12d",1234567);
+    printf("size : %d\n",k);
     printf("\n");
-    ft_printf("%-15.12d",1234567);
+    k = ft_printf("%-15.12d",1234567);
+    printf("size : %d\n",k);
     printf("\n");
     printf("======28_1=====\n");*/
 }

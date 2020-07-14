@@ -6,7 +6,7 @@
 /*   By: jaewoopark <jaewoopark@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 16:16:07 by japark            #+#    #+#             */
-/*   Updated: 2020/07/12 19:01:59 by jaewoopark       ###   ########.fr       */
+/*   Updated: 2020/07/14 15:35:32 by jaewoopark       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ int    ft_printf(const char*format, ...)
 {
     va_list ap;
     int     i;
+    int     size;
 
     va_start(ap,format);
     i = 0;
+    size = 0;
     while (format[i] != '\0')
     {
         if (format[i] == '%')
@@ -27,11 +29,13 @@ int    ft_printf(const char*format, ...)
             while ((format[i] > 47 && format[i] <= 57) || format[i] == '.'
             || format[i] == '-')
                 i++;
-            check_printf(ap,format,i);
+            size += check_printf(ap,format,i);
         }
         else
-            ft_putchar_fd(format[i], 1);
+            ft_count_putchar(format[i], &size);
         i++;
+        /*if (format[i] == '\n')
+            size++;*/
     }
-    return (i);
+    return (size);
 }

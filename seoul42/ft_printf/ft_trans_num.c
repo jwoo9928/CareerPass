@@ -6,7 +6,7 @@
 /*   By: jaewoopark <jaewoopark@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 13:39:31 by japark            #+#    #+#             */
-/*   Updated: 2020/07/12 19:00:18 by jaewoopark       ###   ########.fr       */
+/*   Updated: 2020/07/14 15:10:50 by jaewoopark       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,26 @@ char    *trand_hex(size_t num, int check)
     }
     storage[digit - 1] = hex[num];
     return (storage);
+}
+
+int ft_putstr_count(char *str, int size)
+{
+    int i;
+
+    i = size;
+    ft_putstr_fd(str, 1);
+    while (i>0)
+    {
+        ft_putchar_fd(' ', 1);
+        i--;
+    }
+    if(size < 0)
+        size = 0;
+    return(ft_strlen(str) + size);
+}
+
+void ft_count_putchar(char c, int *size)
+{
+    ft_putchar_fd(c, 1);
+    (*size)++;
 }
