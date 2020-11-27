@@ -1,0 +1,80 @@
+.top_bar {
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+    margin: auto;
+    background-color: black;
+    color: aliceblue;
+    width: 100%;
+  }
+  .tables {
+    text-align: center;
+    padding: 20px;
+    margin: auto;
+    border: 1px solid #444444;
+    
+  }
+  /*th, td {
+    border: 1px solid #444444;
+  }*/
+  .tables th {
+    text-align: center;
+  }
+
+  .signout_window {
+    background-color: blanchedalmond;
+    display: none;
+    position: absolute;
+    top: 25px;
+    left: 480px;
+    width: 300px;
+    height: 150px;
+    padding: 30px;
+    border: 2px outset;
+    border-radius: 5px;
+    z-index: 1;
+    margin: auto;
+    text-align: center;
+  }
+
+  .author_window{
+    margin: auto;
+    text-align: center;
+    position: absolute;
+  }
+
+  * {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {
+  display: none;
+  margin:auto;
+  text-align: center;
+}
+img {vertical-align: middle;}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.img_button {
+  text-align: center;
+}
+
+.text {
+  display: table;
+  text-align: center;
+  overflow: auto;
+  border:1px solid black;
+  margin: auto;
+  min-height: 300px;
+  min-width: 400px;
+}
+
+.author-data {
+  background-color: ivory;
+  min-height: 200px;
+  width: 100%;
+  text-align: center;
+}

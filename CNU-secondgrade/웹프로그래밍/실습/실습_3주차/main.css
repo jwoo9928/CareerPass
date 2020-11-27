@@ -1,0 +1,37 @@
+table {
+  font-size: 20px;
+  text-align: center;
+  border: 5px groove #ddd;
+  padding: 20px;
+  margin: auto;
+}
+
+table td{
+  background-color: Green;
+  color: white;
+  font-size: 20px;
+}
+
+table, td, th {
+  border: 5px groove #ddd;
+  border-collapse: collapse;
+}
+
+body {
+  background-image: url("./images/back.png");
+}
+div {
+  border-style: solid;
+}
+
+div h1{
+    text-align: left;
+    margin-top: -10px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 15px;
+}
+
+div h1 span{
+    background-image: url("./images/back.png");
+}

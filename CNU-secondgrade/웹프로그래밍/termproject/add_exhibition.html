@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>term_project</title>
+        <link href="main.css" rel="stylesheet" type="text/css">
+        <meta charset="utf-8">
+      </head>
+      <body>
+        <table class="top_bar">
+          <tr>
+            <td ><i id="menu"><img src="imgs/menu.png" alt="" width="30" height="30"></i></td>
+            <td><i onclick="move_main()">온라인 전시회</i></td>
+            <td onclick="move_login()">로그인</td>
+          </tr>
+        </table><br><br><br>
+        <table class="tables">
+            <th>전시회 추가</th>
+            <tr>
+                <td>
+                    <input type="file" name="image" id="image"><br>
+                    <input type="button" value="이미지 추가" id="img_add" onclick="img_add()">
+                </td>
+            </tr>
+            <tr>
+                <td><div id="checkimg" class="text"></div></td>
+            </tr>
+            <tr>
+                <td>
+                    <br>
+                    <label for="title">제목 : </label><input type="text" id="title"><br><br>
+                    <label for="title">내용</label><br>
+                    <textarea id="content" style="height: 200px; width: 350px"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="다음작품 등록" id="addOther">
+                    <input type="submit" value="전시회 생성" id="create">
+                </td>
+            </tr>
+        </table>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="main.js"></script>
+        </body>
+</html>

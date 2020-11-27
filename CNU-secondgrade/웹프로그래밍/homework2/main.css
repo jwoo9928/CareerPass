@@ -1,0 +1,35 @@
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    min-width: 100%;
+    text-align: center;
+}
+
+th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.title {
+    height: 20px;
+}
+
+.data {
+    height: 300px;
+}
+
+.login {
+    display: none;
+    text-align: right;
+    position: absolute;
+    width: 230px;
+    height: 70px;
+    padding: 30px;
+    border: 2px outset;
+    border-radius: 5px;
+    background-color: coral;
+    z-index: 1;
+}
+.member {
+    float: right;
+}
