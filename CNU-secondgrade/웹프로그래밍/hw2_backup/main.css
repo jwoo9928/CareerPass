@@ -5,7 +5,7 @@ table {
     text-align: center;
 }
 
-th, td {
+table td {
     border: 1px solid black;
     text-align: center;
 }
@@ -30,6 +30,28 @@ th, td {
     background-color: coral;
     z-index: 1;
 }
+
+.todo {
+    display: none;
+    position: absolute;
+    width: 400px;
+    height: 110px;
+    padding: 30px;
+    border: 2px outset;
+    border-radius: 5px;
+    background-color: lightblue;
+    z-index: 1;
+}
+
 .member {
     float: right;
+}
+
+.todobox {
+    border: 1px solid black;
+    background-color: skyblue;
+    top:50%; left:50%;
+    margin: 5px;
+    height: 30px;
+    
 }
