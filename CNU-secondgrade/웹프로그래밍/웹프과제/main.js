@@ -107,7 +107,6 @@ function inputCheck(v, type, m) {
       break;
   }
   if(reg.test(v.value)){v.value="";}
-  else{alert(m);}
 }
 
 //장바구니 정보 테이블 삽입 처리
